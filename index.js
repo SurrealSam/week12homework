@@ -1,5 +1,6 @@
 const inquirer = require('inquirer');
 var mysql = require('mysql');
+const cTable = require('console.table');
 
 
 var connection = mysql.createConnection({
@@ -208,7 +209,7 @@ function getInfo() {
 
       connection.query(statement, function (error, results, fields) {
         if (error) throw error;
-        console.log(results);
+        console.table(results);
         //tried using a json.stringify but it looked worse in the console log on terminal
       });
 
